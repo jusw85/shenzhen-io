@@ -1,0 +1,144 @@
+[name] New design 1
+[puzzle] Sz020
+[production-cost] 3100
+[power-usage] 426
+[lines-of-code] 70
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+................1414..
+......954.14.14...14..
+......A...........14..
+..14.16...............
+.....1554.14......14..
+.............14.1414..
+..................14..
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 11
+[y] 2
+[code] 
+st: slx x0
+  mov x0 acc
+  teq acc 3
++ mov 110 x3
++ slp 2
++ mov 0 x3
++ jmp st
+  teq acc 4
++ mov 010 x3
++ slp 4
++ mov 0 x3
+- mov acc x3
+
+[chip] 
+[type] UC6
+[x] 14
+[y] 2
+[code] 
+st: slx x1
+  mov x1 acc
+  teq acc 5
+- teq acc 7
++ mov 001 x3
++ slp 2
++ mov 0 x3
++ jmp st
+  teq acc 6
++ mov 100 x3
++ slp 2
++ mov 0 x3
+- mov acc x3
+
+[chip] 
+[type] DX3
+[x] 17
+[y] 2
+
+[chip] 
+[type] UC4X
+[x] 8
+[y] 3
+[code] 
+  slx x0
+  mov x0 acc
+  teq acc 1
+- teq acc 2
++ mov 0 x3
+- mov acc x3
+
+[chip] 
+[type] UC4X
+[x] 3
+[y] 4
+[code] 
+  slx x0
+  mov x0 acc
+  mov acc x3
+  mov acc x2
+
+[chip] 
+[type] UC6
+[x] 8
+[y] 6
+[code] 
+st: slx x1
+  mov x1 acc
+  teq acc 1
++ mov 100 x3
++ slp 3
++ mov 0 x3
++ jmp st
+  teq acc 2
++ mov 101 x3
++ slp 2
++ mov 100 x3
++ slp 4
++ mov 0 x3
+- mov acc x3
+
+[chip] 
+[type] UC6
+[x] 11
+[y] 6
+[code] 
+st: slx x1
+  mov x1 acc
+  teq acc 3
+- teq acc 4
++ mov 100 x3
++ slp 4
++ mov 0 x3
++ jmp st
+  teq acc 5
++ mov 100 x3
++ slp 6
++ mov 0 x3
+- mov acc x3
+
+[chip] 
+[type] DX3
+[x] 17
+[y] 6
+
+[chip] 
+[type] UC4X
+[x] 14
+[y] 7
+[code] 
+st: slx x1
+  mov x1 acc  
+  teq acc 6
+- teq acc 7
++ mov 010 x3
++ slp 6
++ mov 0 x3
+- mov acc x3
+

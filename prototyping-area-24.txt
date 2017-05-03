@@ -1,0 +1,322 @@
+[name] The Maze
+[puzzle] SzSandbox
+
+[traces] 
+......................
+........95555C........
+....95556..94A........
+.1556.95C.16961C......
+.1C954A.A.14A.1E......
+..AA14A.349D6156......
+..A354A1556A.1555555C.
+..3C14A1C14A15C.....A.
+.94354A.B54354354...A.
+.A..1561615C15C154.16.
+.34.1495554354A....94.
+.0..15615C..156....A..
+.........34...155556..
+......................
+
+[chip] 
+[type] UC6
+[x] 2
+[y] 1
+[code] 
+  mov x0 dat
+  mov 0 x3
+  mov x0 acc
+  tgt x3 -1
++ mov -27 acc#seed
+  mov acc x0
+  teq dat 2
++ mov 0 acc
+re:tgt dat acc
+- sub dat
+- jmp re
+  add 2
+  mov acc x0
+  mov acc p1
+
+[chip] 
+[type] UC4
+[x] 5
+[y] 1
+[code] 
+# ROTATION
+# COUNTER
+  teq x0 0
+- mov p1 acc
++ mov acc x0
++ sub 1
++ tlt acc 0
+
+[chip] 
+[type] UC6
+[x] 10
+[y] 1
+[code] 
+@mov 29 p1#start Y
+re:mov x3 acc
+  teq acc 100
++ mov 1 x0
++ jmp re
+  mul -1
+  add 30 #size
+  mov acc p1
+  mov dat acc
+  add 1
+  tgt acc 3
++ sub 4
+  mov acc p0
+  mov acc dat
+
+[chip] 
+[type] PAD
+[x] 15
+[y] 1
+
+[chip] 
+[type] UC6
+[x] 5
+[y] 3
+[code] 
+st:mov x3 acc
+  mov x3 dat
+  mov dat x0
+  tcp x0 acc
+  mul -1
++ add p0
++ mov 0 x0 
+- add dat
+  mov acc x3
+  mov acc x1
++ mov p0 acc
+- mov dat acc
+- sub p0
+  mov acc x1
+
+[chip] 
+[type] UC6
+[x] 13
+[y] 3
+[code] 
+@ mov 9 dat#strt X
+st:mov dat p1
+  mov x3 acc
+  teq acc 0  
++ mov dat x1
++ mov p0 dat
++ jmp st
+  add 3  
+  mov acc x0
+  mov 0 x0
+  tlt x0 2
++ add dat
++ mov acc dat
+  mov 0 x3
+
+[chip] 
+[type] UC6
+[x] 17
+[y] 3
+[code] 
+p:mov x3 null  
+st:mov x2 acc
+  tgt acc 0
+- jmp st
+  tgt acc 2
+- mul -2
+- mov acc x1
+- mov x1 x3
+- jmp p
+  teq acc 3
+  mov 0 x1
++ mov 0 x1
++ mov 0 x1
+  mov 0 x3
+
+[chip] 
+[type] UC6
+[x] 2
+[y] 4
+[code] 
+st:mov x3 acc
+  teq acc 0
++ mov 1 p1
+- sub 2
+- mov acc x1
+- add dat
+- add 39#also seed
+- mul 6
+- dst 2 0
+- mov acc x1
+- mov x1 dat
+- mov x1 x3
+- tgt dat -1
+- mov 0 p1
+
+[chip] 
+[type] UC6
+[x] 10
+[y] 4
+[code] 
+  slx x3
+  mov x3 acc
+  mov 100 x2
+  add p1
+  mov acc dat
+  mov x3 acc
+  add p0
+  teq acc 30 #size
++ mov 3 x3
+- mov dat x0
+- mov 30 x0 #size
+- mov acc x1
+- mov 30 x1 #size
+
+[chip] 
+[type] UC6
+[x] 5
+[y] 6
+[code] 
+st:tlt x2 1
++ mov x1 x0
++ jmp st
+  mov x1 acc
+  mov x1 dat
+  teq acc 0
+- teq acc 30 #size
++ mov 3 x3
++ jmp clr
+  tlt dat 3
+- mov acc x2
+- mov dat x2
++ mov p0 x3
+clr:+mov x1 x1
+
+[chip] 
+[type] BRIDGE
+[x] 9
+[y] 6
+
+[chip] 
+[type] LCDC
+[x] 15
+[y] 6
+[custom-screen] 
+lab7
+
+[chip] 
+[type] UC6
+[x] 11
+[y] 7
+[code] 
+@ mov 1 x3
+re:mov acc x1
+  mov 0 x1
+  mov x1 dat
+  mov dat x0
+  tcp dat 1
++ jmp st
+  mov acc x0
+  add 1
+  tlt acc x0
++ jmp re
+  mov 3 x0
+st:mov 0 x2
+  mov x2 acc
+
+[chip] 
+[type] UC6
+[x] 2
+[y] 8
+[code] 
+st:mov x2 acc
+  add 1
+  mov acc dat
+  mov x3 acc
+  add 2
+  tgt acc 18
+- jmp s1
+  mov acc x1
+  teq x1 dat
+s1:-mov acc x1
+- teq x1 dat
++ mov 1 x0
+- mov 3 x0
+  mov x3 x3
+
+[chip] 
+[type] RAM
+[x] 5
+[y] 9
+
+[chip] 
+[type] UC6
+[x] 8
+[y] 9
+[code] 
+st:mov x2 acc
+  add 1
+  mov acc x3
+  tgt acc 3
+- mov x2 dat
+- mov dat x0
+- mov -1 x0
+- mov x0 x3
+- mov dat x0
+- mov 1 x0
+- mov x0 x3
+- mov 6 x2
+- add 1
+- mov acc x3
+
+[chip] 
+[type] UC6
+[x] 12
+[y] 10
+[code] 
+  mov -2 acc
+nxt:tcp x1 3
++ jmp eof
+- teq acc -5
++ mov 27 x2
+- mul -1
+  mov acc x2
+- mul -1
+  sub 1
+  jmp nxt
+eof:mov acc x2
+  sub 1
+  tgt acc -23
++ jmp eof
+
+[chip] 
+[type] UC4X
+[x] 1
+[y] 11
+[code] 
+# 3D MAZE
+# BY ShadowTheAge
+# Find a ladder
+# to finish level
+  
+# To adjust seed
+# Change -26 below
+# (Bottom left MC)
+# -1 to -60 works
+
+[chip] 
+[type] UC4X
+[x] 4
+[y] 11
+[code] 
+# To change size:
+# Replace all 30's
+# with another
+# even number
+# (total 5 numbers
+# in 3 MC)
+# And adjust start
+# X and Y
+

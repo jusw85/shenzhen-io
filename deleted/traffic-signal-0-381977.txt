@@ -1,0 +1,97 @@
+[name] New design 1
+[puzzle] Sz026
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+..........14..........
+........1414.14...8...
+..........14.155416...
+...8....8.14..95414...
+...A....3554.161C1C...
+...A......14.14.A.2...
+...34.15555555556.....
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 4
+[y] 2
+[code] 
+p: slp 1
+  teq p0 0
++ jmp p
+  mov 0 x0
+  not
+a: slp 1
+  teq p0 100
++ jmp a
+  mov acc p1 
+end: slp 1
+
+[chip] 
+[type] UC6
+[x] 11
+[y] 3
+[code] 
+@ jmp wait2
+  mov 100 x3
+  slp x0
+  teq p0 0
++ jmp wait2
+  mov 10 x3
+  slp x1
+  teq p0 0
++ jmp wait2
+  mov 1 x3
+  slp x2
+wait: teq p0 0
+wait2: + slp 1
++ jmp wait
+
+[chip] 
+[type] DX3
+[x] 16
+[y] 4
+
+[chip] 
+[type] UC6
+[x] 11
+[y] 6
+[code] 
+  mov 100 x3
+  slp x0
+  teq p0 100
++ jmp wait2
+  mov 10 x3
+  slp x1
+  teq p0 100
++ jmp wait2
+  mov 1 x3
+  slp x2
+wait: teq p0 100
+wait2: + slp 1
++ jmp wait
+
+[chip] 
+[type] DIAL5
+[x] 9
+[y] 7
+[is-puzzle-provided] true
+
+[chip] 
+[type] DIAL6
+[x] 14
+[y] 7
+[is-puzzle-provided] true
+
+[chip] 
+[type] DIAL4
+[x] 9
+[y] 8
+[is-puzzle-provided] true
+

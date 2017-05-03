@@ -1,0 +1,90 @@
+[name] New design 2
+[puzzle] Sz026
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+.........954..........
+.........A14.155C.8...
+.........A149541616...
+...815C..A156.95414...
+...A14A..A14.16..1C...
+...354A15614.1C...2...
+......355555556.......
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 5
+[y] 3
+[code] 
+
+
+[chip] 
+[type] UC6
+[x] 11
+[y] 3
+[code] 
+st: slx x0
+  mov x0 acc
+  mov 100 x3
+lp: teq p0 100
++ mov 0 x3
++ jmp st
+  tgt acc 0
++ sub 1
++ slp 1
++ jmp lp
+  mov x1 x2
+
+[chip] 
+[type] DIAL4
+[x] 3
+[y] 4
+[is-puzzle-provided] true
+
+[chip] 
+[type] DIAL6
+[x] 9
+[y] 4
+[is-puzzle-provided] true
+
+[chip] 
+[type] DX3
+[x] 16
+[y] 4
+
+[chip] 
+[type] UC4
+[x] 5
+[y] 6
+[code] 
+
+
+[chip] 
+[type] UC6
+[x] 11
+[y] 6
+[code] 
+st: slx x0
+  mov x0 acc
+  mov 100 x3
+lp: teq p0 100
++ mov 0 x3
++ jmp st
+  tgt acc 0
++ sub 1
++ slp 1
++ jmp lp
+  mov x1 x2
+
+[chip] 
+[type] DIAL5
+[x] 9
+[y] 7
+[is-puzzle-provided] true
+

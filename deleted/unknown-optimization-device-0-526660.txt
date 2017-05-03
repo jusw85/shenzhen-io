@@ -1,0 +1,80 @@
+[name] New design 1
+[puzzle] Sz015
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+..........154.........
+..........155C........
+....15554...8A...8....
+....95555555E34.16....
+....2.8...15694.......
+......A...1556........
+......354.............
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 8
+[y] 2
+[code] 
+st: tgt p1 39
++ tlt p1 80
++ tgt p0 39
++ jmp n
+  jmp e
+n: tlt p0 60
++ mov 50 x3
+- tlt p0 80
++ mov 80 x3
+- jmp e
+  slp 1
+  jmp st
+e: mov 0 x3
+  slp 1
+
+[chip] 
+[type] UC6
+[x] 14
+[y] 3
+[code] 
+  mov x0 acc
+  mov x1 dat  
+  tcp acc dat
++ mov acc p1
+- mov dat p1
+  slp 1
+
+[chip] 
+[type] BRIDGE
+[x] 6
+[y] 4
+
+[chip] 
+[type] UC6
+[x] 8
+[y] 6
+[code] 
+st: tgt p0 19
++ tlt p0 60
++ jmp e
+  tgt p0 59
++ tlt p0 80
++ tgt p1 39
++ tlt p1 80
++ jmp e
+  mov 30 x3
+  slp 1
+  jmp st
+e: mov 0 x3
+  slp 1
+
+[chip] 
+[type] BRIDGE
+[x] 12
+[y] 6
+

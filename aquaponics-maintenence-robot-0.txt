@@ -1,0 +1,74 @@
+[name] New design 1
+[puzzle] Sz023
+[production-cost] 1000
+[power-usage] 214
+[lines-of-code] 24
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+......................
+................9554..
+....1554.14...156.....
+.........1554.........
+......94..8......154..
+......A...3555555554..
+......355555555554....
+......................
+......................
+
+[chip] 
+[type] BRIDGE
+[x] 17
+[y] 2
+
+[chip] 
+[type] UC6
+[x] 7
+[y] 4
+[code] 
+  mov x0 dat
+  tgt dat -1
++ mov dat x3
++ mov x0 acc
++ mov x0 dat
++ slx x3
++ mov x3 null
++ gen p0 acc 0
++ gen p1 dat 0
+- slp 1
+
+[chip] 
+[type] BRIDGE
+[x] 10
+[y] 4
+
+[chip] 
+[type] UC6
+[x] 12
+[y] 4
+[code] 
+@ mov 50 p1
+  slx x1
+  mov x1 dat
+lp: tcp dat acc
++ add 1
++ gen p1 1 0
+- sub 1
+- gen p1 0 1
+  mov 50 p1
++ slp 1
++ jmp lp
+- slp 1
+- jmp lp
+  mov 1 x1
+
+[chip] 
+[type] RADIO
+[x] 2
+[y] 5
+[is-puzzle-provided] true
+

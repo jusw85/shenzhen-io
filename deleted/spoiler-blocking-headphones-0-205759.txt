@@ -1,0 +1,84 @@
+[name] New design 1
+[puzzle] Sz019
+[production-cost] 1000
+[power-usage] 1625
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+......................
+....95555555555C......
+....34......1556......
+....14.15C..14........
+...154.14355554.14....
+....155554...14.......
+........14............
+......................
+......................
+
+[chip] 
+[type] BRIDGE
+[x] 8
+[y] 2
+
+[chip] 
+[type] BANK
+[x] 9
+[y] 2
+[rom] 
+712,917,575,645,711,573,495,160,356,361,138,420,0,0
+
+[chip] 
+[type] BRIDGE
+[x] 4
+[y] 3
+
+[chip] 
+[type] BRIDGE
+[x] 13
+[y] 3
+
+[chip] 
+[type] UC4
+[x] 14
+[y] 3
+[code] 
+p: teq x0 1
+p2: - mov p0 p1
+- slp 1
+- jmp p
+  mov 50 p1
+a: slp 1
+  tlt x0 2
++ jmp a
+  jmp p2
+
+[chip] 
+[type] UC6
+[x] 5
+[y] 4
+[code] 
+  mov 0 x1
+  mov 0 acc
+  mov x0 dat
+  tlt dat 138
++ jmp n
+lp: teq dat x2
++ teq x0 x2
++ mov 1 acc
+  tlt x1 12
++ jmp lp
+n:  teq p0 100
++ mov 2 acc
+  mov acc x3
+  slp 1
+
+[chip] 
+[type] NLP
+[x] 10
+[y] 5
+[is-puzzle-provided] true
+

@@ -1,0 +1,82 @@
+[name] New design 1
+[puzzle] Sz007
+[production-cost] 1300
+[power-usage] 177
+[lines-of-code] 27
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+....95555555555555C...
+....A...95555555C.34..
+....A...A.95554.3554..
+..1C2..16.2..1555554..
+...354...954..155554..
+....94.15614.1554.14..
+....3555555555554.....
+......................
+......................
+
+[chip] 
+[type] UC4
+[x] 16
+[y] 2
+[code] 
+  slx x0
+  gen p0 1 x0
+  gen p1 3 0
+
+[chip] 
+[type] BRIDGE
+[x] 4
+[y] 3
+
+[chip] 
+[type] UC6
+[x] 5
+[y] 3
+[code] 
+  slx x1
+  mov x1 dat
+  teq dat -1
++ jmp reset
+  tcp dat 2
+- add 1
+- jmp sleep
++ gen p0 1 0
++ gen p1 1 0
++ mov acc x2
+reset: + mov 0 acc
++ jmp sleep
+  add 2
+sleep: slp 1
+
+[chip] 
+[type] BRIDGE
+[x] 10
+[y] 3
+
+[chip] 
+[type] UC6
+[x] 11
+[y] 3
+[code] 
+  slx x1
+  mov x1 acc
+  teq acc 0
+- teq acc 2
++ gen p1 1 0
+  teq acc 0
+- teq acc 1
++ gen p0 1 0
+- gen p0 2 0
+  mov 0 x2
+
+[chip] 
+[type] BRIDGE
+[x] 14
+[y] 4
+

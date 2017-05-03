@@ -1,0 +1,104 @@
+[name] New design 1
+[puzzle] Sz026
+[production-cost] 1600
+[power-usage] 327
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+....95555555555C......
+....A...155C...A..8...
+....A...154A155E.16...
+...8A...954A94.A814...
+...A34.1E14AA.9761C...
+...A....A15634A...2...
+...354..354.156.......
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 5
+[y] 2
+[code] 
+p: slp 1
+  teq p0 0
++ jmp p
+  mov 50 p1
+  mov 0 x0
+  not
+a: slp 1
+  teq p0 100
++ jmp a
+  mov acc p1
+
+[chip] 
+[type] UC6
+[x] 10
+[y] 2
+[code] 
+@ jmp wait
+  mov 100 x2
+  slp x1
+  tlt p0 51
++ jmp wait2
+  mov 10 x2
+  slp x0
+  tlt p0 51
++ jmp wait2
+  mov 1 x2
+  slp x3
+wait: tlt p0 51
+wait2: + slp 1
++ jmp wait
+
+[chip] 
+[type] BRIDGE
+[x] 9
+[y] 4
+
+[chip] 
+[type] DX3
+[x] 16
+[y] 4
+
+[chip] 
+[type] UC6
+[x] 10
+[y] 5
+[code] 
+  mov 100 x3
+  slp x0
+  tgt p0 49
++ jmp wait2
+  mov 10 x3
+  slp x1
+  tgt p0 49
++ jmp wait2
+  mov 1 x3
+  slp x2
+wait: tgt p0 49
+wait2: + slp 1
++ jmp wait
+
+[chip] 
+[type] DIAL6
+[x] 13
+[y] 5
+[is-puzzle-provided] true
+
+[chip] 
+[type] DIAL5
+[x] 7
+[y] 6
+[is-puzzle-provided] true
+
+[chip] 
+[type] DIAL4
+[x] 7
+[y] 7
+[is-puzzle-provided] true
+

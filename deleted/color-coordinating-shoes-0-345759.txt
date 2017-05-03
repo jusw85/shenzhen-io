@@ -1,0 +1,112 @@
+[name] New design 1
+[puzzle] Sz018
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+.........954..954.....
+..8......A15C.A1C.....
+..355C154A..A.A.2..8..
+.....349435434A15556..
+......96..1554A14..8..
+..14.16.....94354956..
+............355556....
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 3
+[y] 3
+[code] 
+  teq p1 100
+- jmp en
+lp:  add p0
+  slp 1
+  teq p1 0
+- jmp lp
+  mov acc x2
+  mov acc x2
+  mov acc x2
+  mov acc x2
+  mov acc x2
+  mov acc x2
+  mov 0 acc
+en: slp 1
+
+[chip] 
+[type] UC6
+[x] 13
+[y] 3
+[code] 
+@ mov 50 p0   
+@ mov 50 p1
+  slx x1
+  mov x0 acc
+  sub 1
+  mul 2
+  mov acc x3
+  mov x2 p1
+  mov x2 p0  
+  mov x1 null
+  slp 1
+  mov 0 x0
+
+[chip] 
+[type] UC6
+[x] 8
+[y] 4
+[code] 
+  slx x0
+lp: mov x3 acc
+  mul x0
+  tlt x1 acc
+- jmp lp
+  mov 0 x2
+lp2: teq x3 0
+- mov x0 null
+- mov x1 null
+- jmp lp2
+
+[chip] 
+[type] BRIDGE
+[x] 16
+[y] 4
+
+[chip] 
+[type] UC6
+[x] 4
+[y] 6
+[code] 
+  teq p0 100
+- jmp en
+lp:  add 1
+  slp 1
+  teq p0 0
+- jmp lp
+  mov acc x2
+  mov acc x2
+  mov acc x2
+  mov acc x2
+  mov acc x2
+  mov acc x2
+  mov 0 acc
+en: slp 1
+
+[chip] 
+[type] BANK
+[x] 8
+[y] 7
+[rom] 
+39,49,59,69,79,89,0,0,0,0,0,0,0,0
+
+[chip] 
+[type] BANK
+[x] 13
+[y] 7
+[rom] 
+95,5,50,5,5,5,5,60,15,80,75,85,0,0
+

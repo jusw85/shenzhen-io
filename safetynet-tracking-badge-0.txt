@@ -1,0 +1,127 @@
+[name] New design 1
+[puzzle] Sz027
+[production-cost] 2500
+[power-usage] 540
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+...15C1C..155555C.....
+..1C.A.A.95554..34....
+..834A.A.A.81C.154....
+..A..A.A16.A.A954..8..
+..A1561754.34AA15556..
+..A.........16A154....
+..354.........3554....
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 4
+[y] 2
+[code] 
+  tgt p0 0
+- jmp en
+  tlt p0 80
+- mov 10 p1
+- mov 0 x0
+- jmp en
+  tlt p0 51
++ mov 70 p1
+- mov 0 p1
+  mov 1 x0
+en: slp 1
+
+[chip] 
+[type] UC6
+[x] 13
+[y] 2
+[code] 
+  mov 50 p1
+  slx x1
+  mov x3 acc
+  mov x1 x3
+lp: tgt acc 0
++ sub 1
++ mov x2 p1
++ slp 1
++ jmp lp
+
+[chip] 
+[type] RAM
+[x] 17
+[y] 2
+
+[chip] 
+[type] UC4
+[x] 9
+[y] 4
+[code] 
+sl: slx x0
+  teq x0 x1
+- jmp sl
+  mov p0 acc
+  tgt acc 9
++ mul 10
+- add 200
+  mov acc x1
+
+[chip] 
+[type] UC6
+[x] 13
+[y] 5
+[code] 
+  tcp x3 1
+- jmp en
++ mov x3 x0
++ jmp en
+  mov x3 acc
+lp: tgt acc 0
++ sub 1
++ mov x3 x2
++ jmp lp
+  mov 0 x1
+en: slp 1
+
+[chip] 
+[type] UC6
+[x] 4
+[y] 6
+[code] 
+sl: slx x0
+  mov 0 p1
+  teq x0 0
++ jmp sl
+  teq p0 0
++ mov 60 p1
+  teq p0 40
++ mov 1 p1
+  teq p0 60
++ mov 2 p1
+  teq p0 80
++ mov 3 p1
+  teq p0 100
++ mov 4 p1
+
+[chip] 
+[type] BRIDGE
+[x] 11
+[y] 6
+
+[chip] 
+[type] RADIO
+[x] 17
+[y] 6
+[rotated] true
+[is-puzzle-provided] true
+
+[chip] 
+[type] ID
+[x] 9
+[y] 8
+[is-puzzle-provided] true
+

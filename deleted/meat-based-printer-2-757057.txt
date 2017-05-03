@@ -1,0 +1,89 @@
+[name] New design 1 (Copy) (Copy)
+[puzzle] Sz022
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+....955555555555555C..
+...16.........1C.1C2..
+..955554.154...A..2...
+..A1C.94.154...A.154..
+..34A.2.......96.154..
+..14A15555555561C154..
+..156155555555556.....
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 3
+[y] 2
+[code] 
+  slx x1  
+  mov x1 acc
+  mov 100 p0
+  teq acc 3
++ mov 011 x2
++ jmp en
+  teq acc 2
++ mov 1 x3
+  teq acc 1
++ mov 0 x0
+en:  slp 7
+  mov 0 x2
+  mov 0 p0
+
+[chip] 
+[type] BRIDGE
+[x] 6
+[y] 2
+
+[chip] 
+[type] DX3
+[x] 16
+[y] 3
+
+[chip] 
+[type] BRIDGE
+[x] 18
+[y] 4
+
+[chip] 
+[type] BRIDGE
+[x] 3
+[y] 5
+
+[chip] 
+[type] UC4X
+[x] 7
+[y] 5
+[code] 
+  slx x0
+  mov x0 x3
+lp:  tlt x3 7
++ mov x2 x1
++ slp 1
++ jmp lp
+
+[chip] 
+[type] BANK
+[x] 11
+[y] 5
+[rom] 
+111,0,101,0,101,0,111,0,0,0,0,0,0,0
+
+[chip] 
+[type] UC4
+[x] 15
+[y] 6
+[code] 
+  slx x0
+  slp x0
+  gen p1 2 1
+  mov 100 p1
+  slp 2
+  mov 0 p1
+

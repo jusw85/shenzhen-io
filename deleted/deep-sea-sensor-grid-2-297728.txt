@@ -1,0 +1,57 @@
+[name] New design 3
+[puzzle] Sz021
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+......................
+...1555555C...........
+.......15435494.......
+.......154.1574.......
+...1555554.1554.......
+......................
+......................
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 9
+[y] 4
+[code] 
+  mov p0 x0
+  mov p1 x0
+  teq x2 x3
+- jmp en
+  mov x0 null
+  mov x0 null
+  teq x2 2
++ mov x0 null
+  mov 6 acc
+lp: tgt acc 0
++ mov x0 x3
++ mov x0 null
+  jmp lp
+en: slp 1
+
+[chip] 
+[type] RADIO
+[x] 14
+[y] 4
+[rotated] true
+[is-puzzle-provided] true
+
+[chip] 
+[type] RAM
+[x] 5
+[y] 5
+
+[chip] 
+[type] ID
+[x] 14
+[y] 6
+[is-puzzle-provided] true
+

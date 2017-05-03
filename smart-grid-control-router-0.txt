@@ -1,0 +1,68 @@
+[name] New design 1
+[puzzle] Sz024
+[production-cost] 1000
+[power-usage] 382
+[lines-of-code] 28
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+......................
+.....8.......9554.....
+.....3D54...96........
+.....1E94.156..94.....
+.....96A..154..A......
+.....2.341554.168.....
+..............156.....
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 12
+[y] 2
+[code] 
+st:  slx x0
+  mov x0 dat
+  mov x0 acc
+  teq dat x1
++ mov dat x3
++ mov acc x3
+- mov dat x2
+- mov acc x2
+lp: teq dat x1
+- mov x0 x2
++ mov x0 x3
+  sub 1
+  teq acc 0
+- jmp lp
+
+[chip] 
+[type] ID
+[x] 8
+[y] 3
+[is-puzzle-provided] true
+
+[chip] 
+[type] UC6
+[x] 8
+[y] 4
+[code] 
+st:  slx x0
+  mov x0 dat
+  mov x0 acc
+  tgt dat x1
++ mov dat x3
++ mov acc x3
+- mov dat x2
+- mov acc x2
+lp: tgt dat x1
+- mov x0 x2
++ mov x0 x3
+  sub 1
+  teq acc 0
+- jmp lp
+

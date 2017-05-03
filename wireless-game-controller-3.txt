@@ -1,0 +1,63 @@
+[name] New design 2
+[puzzle] Sz011
+[production-cost] 600
+[power-usage] 261
+[lines-of-code] 12
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+....955555555554......
+....A.........94......
+....A.........35C.....
+....34.14.954.14A.....
+....94.155694.156.....
+....A...8..A...1C.....
+....34156..355542.....
+......................
+......................
+
+[chip] 
+[type] BRIDGE
+[x] 8
+[y] 3
+
+[chip] 
+[type] BRIDGE
+[x] 15
+[y] 3
+
+[chip] 
+[type] UC4
+[x] 5
+[y] 4
+[code] 
+  slx x1
+  mov p0 x0
+  mov p1 x0
+  mov x1 x0
+
+[chip] 
+[type] UC4
+[x] 12
+[y] 4
+[code] 
+  teq x1 -1
++ mov 0 acc
++ add p0
++ add p1
++ add p1
++ dgt 2
++ mov acc x0
+  slp 1
+
+[chip] 
+[type] RADIO
+[x] 15
+[y] 7
+[rotated] true
+[is-puzzle-provided] true
+
